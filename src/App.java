@@ -16,7 +16,7 @@ public class App extends JFrame {
 
         content = new JPanel(new BorderLayout());
         gui = new ImagePanel();
-        menu = new Menu();
+        menu = new Menu(gui);
         content.add(gui, BorderLayout.CENTER);
         content.add(menu, BorderLayout.SOUTH);
 

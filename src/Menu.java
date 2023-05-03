@@ -1,30 +1,23 @@
-import javax.swing.JPanel;
-import javax.swing.JButton;
-import javax.swing.JToolBar;
+import boofcv.gui.image.ImagePanel;
 
+import javax.swing.*;
 import java.awt.BorderLayout;
-import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Menu extends JPanel {
+    UploadButton upload;
+    JButton download;
+    ImagePanel gui;
 
-    public Menu() {
+    public Menu(ImagePanel image) {
         super(new BorderLayout());
-
+        gui = image;
         JToolBar toolbar = new JToolBar();
-        JButton upload = new JButton("Upload");
-        JButton download = new JButton("Download");
-        download.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent e) {
-                // TODO Auto-generated method stub
-
-            }
-        });
+        upload = new UploadButton("Upload", this, gui);
+        download = new JButton("Download");
         toolbar.add(upload);
         toolbar.add(download);
         add(toolbar, BorderLayout.PAGE_START);
 
     }
-
 }
