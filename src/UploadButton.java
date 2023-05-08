@@ -37,10 +37,10 @@ public class UploadButton extends JButton {
                     //BufferedImage img = new BufferedImage(400,400,BufferedImage.TYPE_4BYTE_ABGR);
                     try {
                         BufferedImage img = ImageIO.read(path);
-                        if(panel == null) {
-                            System.out.println("Panel null");
-                        }
+                        System.out.println(img);
                         panel.setImage(img);
+                        panel.setCentering(true);
+                        panel.repaint();
                     } catch (IOException ioException) {
                         ioException.printStackTrace();
                     }
