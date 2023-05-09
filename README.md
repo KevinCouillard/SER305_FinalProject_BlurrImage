@@ -1,5 +1,5 @@
 # **SER305_FinalProject_BlurrImage**
-### * Developers: Jakob DeBroff, Jonathan Mason, Alex Santeramo, Kevin Couillard *
+### *Developers: Jakob DeBroff, Jonathan Mason, Alex Santeramo, Kevin Couillard*
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
