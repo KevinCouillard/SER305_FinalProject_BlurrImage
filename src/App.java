@@ -1,6 +1,6 @@
 import boofcv.gui.image.ImagePanel;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+
+import javax.swing.*;
 import java.awt.BorderLayout;
 
 public class App extends JFrame {
@@ -11,7 +11,7 @@ public class App extends JFrame {
 
     public App() {
         super("Blur Image");
-        this.setSize(900, 900);
+        this.setSize(600, 600);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         content = new JPanel(new BorderLayout());
