@@ -15,7 +15,7 @@
 > ### Step 3. Create a folder for the Repo/Code & clone the repository.
 >> #### 1. Navigate to a preferred path in local storage and create a new folder.
 >> #### 2. Navigate to the newly created folder in the system terminal or command prompt.
->> #### 3. Navigate to this repository and click the green "<Code>" button.
+>> #### 3. Navigate to this repository and click the green "Code" button.
 >> #### 4. Copy the HTTPS url in the local tab and under "Clone".
 >> #### 5. Navigate back to the system terminal or command prompt and run the command "git clone <copied url>" with the section in arrow brackets replaced with the url copied from step 4.
 > ### Step 4. Add the downloaded BoofCV Library jar files to the cloned repositories reference libraries.
