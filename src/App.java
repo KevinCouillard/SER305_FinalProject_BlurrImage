@@ -11,6 +11,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -33,32 +34,52 @@ public class App extends JFrame {
         content.add(gui, BorderLayout.CENTER);
         content.add(menu, BorderLayout.SOUTH);
 
-//        gui.addMouseMotionListener(new MouseMotionAdapter() {
-//            Point start = new Point();
-//            @Override
-//            public void mouseMoved(MouseEvent me) {
-//                start = me.getPoint();
-//            }
-//            @Override
-//            public void mouseDragged(MouseEvent me) {
-//                Point end = me.getPoint();
-////                Rectangle captureRect = new Rectangle(start, new Dimension(end.x - start.x, end.y
-////                        - start.y));
-//                int x = Math.min(start.x, end.x);
-//                int y = Math.min(start.y, end.y);
-//                int width = Math.abs(end.x - start.x);
-//                int height = Math.abs(end.y - start.y);
-//                BufferedImage blurredSection = menu.upload.getImage().getSubimage(x, y, width, height);
-//                Planar<GrayU8> input = ConvertBufferedImage.convertFrom(blurredSection, true, ImageType.pl(3, GrayU8.class));
-//                Planar<GrayU8> blurred = input.createSameShape();
-//                // size of the blur kernel. square region with a width of radius*2 + 1
-//                int radius = 8;
-//                // Apply gaussian blur using a procedural interface
-//                GBlurImageOps.gaussian(input, blurred, -1, radius, null);
-//                gui.setImage(ConvertBufferedImage.convertTo(blurred, null, true));
-//                gui.repaint();
-//            }
-//        });
+        gui.addMouseListener(new MouseListener() {
+            Point start = new Point();
+            Point end = new Point();
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent me) {
+                start = me.getPoint();
+            }
+            @Override
+            public void mouseReleased(MouseEvent me) {
+                end = me.getPoint();
+                Graphics2D g2d = menu.upload.getImage().createGraphics();
+                Rectangle captureRect = new Rectangle(start, new Dimension(end.x - start.x, end.y - start.y));
+                g2d.drawImage(menu.upload.getImage(), 0, 0, null);
+                int x = Math.min(start.x, end.x);
+                int y = Math.min(start.y, end.y);
+                BufferedImage blurredSection = menu.upload.getImage().getSubimage(x, y, captureRect.width, captureRect.height);
+                // Convert the image to GrayF32 format
+                GrayF32 grayImage = ConvertBufferedImage.convertFrom(blurredSection, (GrayF32) null);
+                // Create a new GrayF32 image to hold the blurred image
+                GrayF32 blurredImage = new GrayF32(grayImage.width, grayImage.height);
+                // Blur the image with a Gaussian kernel of size 5x5 and sigma = 1.0
+                BlurImageOps.gaussian(grayImage, blurredImage, -1, (int) 2.0, null);
+                // Convert the blurred image back to BufferedImage format
+                BufferedImage outputImage = ConvertBufferedImage.convertTo(blurredImage, (BufferedImage) null);
+                g2d.drawImage(outputImage, x, y, null);
+                g2d.dispose();
+                gui.paintComponent(g2d);
+                gui.repaint();
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
 
         this.add(content);
         this.setVisible(true);
