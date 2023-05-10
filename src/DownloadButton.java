@@ -27,12 +27,14 @@ public class DownloadButton extends JButton {
         public void actionPerformed(ActionEvent e) {
             // TODO Auto-generated method stub
             if (e.getActionCommand().equals("Download")) {
+                //change the file name depending on how many pictures have been saved
                 if (imageCount > 0) {
                     f = new File("blurredImage" + imageCount + ".png");
                 } else {
                     f = new File("blurredImage.png");
                 }
                 try {
+                    //Download the new blurred png file onto the user device
                     System.out.println(panel.getImage());
                     ImageIO.write(panel.getImage(), "PNG", f);
                     imageCount++;

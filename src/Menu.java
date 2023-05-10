@@ -12,6 +12,7 @@ public class Menu extends JPanel {
         super(new BorderLayout());
         gui = image;
         JToolBar toolbar = new JToolBar();
+        //Add the buttons
         upload = new UploadButton("Upload", this, gui);
         download = new DownloadButton("Download", this, gui);
         toolbar.add(upload);

@@ -32,15 +32,19 @@ public class UploadButton extends JButton {
             // TODO Auto-generated method stub
             if(e.getActionCommand().equals("Upload"))
             {
+                //Asks the user to select a file
                 JFileChooser upload = new JFileChooser();
                 upload.setCurrentDirectory(new File("."));
                 int res = upload.showOpenDialog(null);
-
+                //run once the user has selected a file
                 if(res == JFileChooser.APPROVE_OPTION) {
+                    //get the path of the file
                     File path = new File(upload.getSelectedFile().getAbsolutePath());
                     try {
+                        //turn the file into an image
                         img = ImageIO.read(path);
                         System.out.println(img);
+                        //paint the image to the gui
                         panel.setImage(img);
                         //panel.setCentering(true);
                         panel.repaint();
@@ -53,6 +57,7 @@ public class UploadButton extends JButton {
         }
 
     }
+    //returns the current image
     public BufferedImage getImage() {
         return img;
     }
