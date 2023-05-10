@@ -22,10 +22,10 @@ public class App extends JFrame {
     JPanel content;
     ImagePanel gui;
     Menu menu;
-    
-    public App(){
+
+    public App() {
         super("Blur Image");
-        this.setSize(600,600);
+        this.setSize(600, 600);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         content = new JPanel(new BorderLayout());
