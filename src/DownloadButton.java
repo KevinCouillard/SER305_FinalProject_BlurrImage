@@ -28,12 +28,13 @@ public class DownloadButton extends JButton {
             // TODO Auto-generated method stub
             if (e.getActionCommand().equals("Download")) {
                 if (imageCount > 0) {
-                    f = new File("blurredImage" + imageCount + ".jpg");
+                    f = new File("blurredImage" + imageCount + ".png");
                 } else {
-                    f = new File("blurredImage.jpg");
+                    f = new File("blurredImage.png");
                 }
                 try {
-                    ImageIO.write(panel.getImage(), "JPEG", f);
+                    System.out.println(panel.getImage());
+                    ImageIO.write(panel.getImage(), "PNG", f);
                     imageCount++;
                 } catch (IOException e1) {
                     // TODO Auto-generated catch block

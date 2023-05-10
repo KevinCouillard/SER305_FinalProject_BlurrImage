@@ -61,7 +61,7 @@ public class App extends JFrame {
                 // Create a new GrayF32 image to hold the blurred image
                 GrayF32 blurredImage = new GrayF32(grayImage.width, grayImage.height);
                 // Blur the image with a Gaussian kernel of size 5x5 and sigma = 1.0
-                BlurImageOps.gaussian(grayImage, blurredImage, -1, (int) 2.0, null);
+                BlurImageOps.gaussian(grayImage, blurredImage, -1, (int) 4.0, null);
                 // Convert the blurred image back to BufferedImage format
                 BufferedImage outputImage = ConvertBufferedImage.convertTo(blurredImage, (BufferedImage) null);
                 g2d.drawImage(outputImage, x, y, null);
