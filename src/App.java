@@ -33,35 +33,6 @@ public class App extends JFrame {
         content.add(gui, BorderLayout.CENTER);
         content.add(menu, BorderLayout.SOUTH);
 
-//        BufferedImage inputImage = null;
-//        try {
-//            inputImage = ImageIO.read(new File("C:\\Users\\alexs\\Pictures\\mainMap.png"));
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        // Convert the image to GrayF32 format
-//        GrayF32 grayImage = ConvertBufferedImage.convertFrom(inputImage, (GrayF32) null);
-//
-//        // Create a new GrayF32 image to hold the blurred image
-//        GrayF32 blurredImage = new GrayF32(grayImage.width, grayImage.height);
-//
-//        // Blur the image with a Gaussian kernel of size 5x5 and sigma = 1.0
-//        BlurImageOps.gaussian(grayImage, blurredImage, -1, (int) 8.0, null);
-//
-//        // Convert the blurred image back to BufferedImage format
-//        BufferedImage outputImage = ConvertBufferedImage.convertTo(blurredImage, (BufferedImage) null);
-//
-//        // Save the blurred image to a file
-//        File outputFile = new File("blurred_image.jpg");
-//        try {
-//            ImageIO.write(outputImage, "jpg", outputFile);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        gui.setImage(outputImage);
-
 //        gui.addMouseMotionListener(new MouseMotionAdapter() {
 //            Point start = new Point();
 //            @Override
